@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="pl">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Instrukcja – Excel do Zalando</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Podkova:wght@400..800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body class="page">
+    <header class="header">
+      <h1>Instrukcja obsługi – Replenish Zalando</h1>
+      <p class="header-text">
+        Ten dokument opisuje, jak korzystać z pliku Excel do uzupełniania
+        zapasów na Zalando.
+      </p>
+    </header>
+    <nav class="nav">
+      <ul class="nav-list">
+        <li><a href="#zakladki">Co jest w pliku?</a></li>
+        <li><a href="#beforestart">Zanim zaczniesz</a></li>
+        <li><a href="#kroki">Kroki</a></li>
+        <li><a href="#statusy">Legenda</a></li>
+        <li><a href="#kontakt">Kontakt</a></li>
+      </ul>
+    </nav>
+
+    <div id="zakladki" class="pages">
+      <h2 class="collapsible-title">Zakładki w pliku</h2>
+      <div class="collapsible-content">
+        <div class="pages-cont">
+          <img src="assets/zalando_1.png" style="height: 800px" />
+          <ul class="list-pages">
+            <li>
+              <span class="zakladka">Start</span> – główny ekran startowy z
+              przyciskami kroków
+            </li>
+            <li>
+              <span class="zakladka">Dashboard</span> – aktualna lista
+              produktów. W kolumnie <code>O</code> można oznaczyć:
+              <ul>
+                <li>
+                  <code>NO</code> – nie uzupełniamy (np. wycofany, niesezonowy)
+                </li>
+                <li>
+                  <code>x</code> – uzupełniamy mimo braku sprzedaży/stocku (np.
+                  nowość)
+                </li>
+              </ul>
+            </li>
+            <li>
+              <span class="zakladka">Order_Template</span> – tu generujemy i
+              edytujemy planowaną wysyłkę
+            </li>
+            <li>
+              <span class="zakladka">On way</span> – lista pozycji, które
+              zostały już wysłane
+            </li>
+            <li>
+              <span class="zakladka">Sprzedaż 30 dni – PIVOT</span> – co się
+              sprzedało w ciągu 30 dni
+            </li>
+            <li>
+              <span class="zakladka">Sprzedaż 7 dni – PIVOT</span> – co się
+              sprzedało w ciągu 7 dni
+            </li>
+            <li>
+              <span class="zakladka">ZalandoOnHand – PIVOT</span> – obecny stan
+              magazynowy na Zalando
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div id="beforestart" class="beforestart">
+      <h2 class="collapsible-title">Co pobrać przed startem?</h2>
+      <div class="collapsible-content">
+        <div class="plikdopobrania">
+          <p>pobierz plik1</p>
+        </div>
+      </div>
+    </div>
+
+    <div id="kroki" class="kroki">
+      <h2 class="collapsible-title">Kroki</h2>
+      <div class="collapsible-content">
+        <div class="krok">
+          <h3>KROK 1</h3>
+          <p>Mam 3 pliki: Baselinker, Zalando i WMS</p>
+        </div>
+
+        <div class="krok">
+          <h3>KROK 2</h3>
+          <p>
+            Generuj plik do Zalando (kliknij przycisk w zakładce
+            <code>Start</code>)
+          </p>
+        </div>
+
+        <div class="krok">
+          <h3>KROK 3</h3>
+          <p>
+            Sprawdź, czy Zalando przyjęło plik → jeśli tak, generuj plik do WMS
+          </p>
+        </div>
+
+        <div class="krok">
+          <h3>KROK 4</h3>
+          <p>Masz info od dziewczyn i WZ? Klikaj!</p>
+        </div>
+      </div>
+    </div>
+
+    <div id="statusy" class="legend">
+      <h2 class="collapsible-title">
+        Legenda statusów w kolumnie O (Dashboard)
+      </h2>
+      <div class="collapsible-content">
+        <table class="statusy">
+          <tr>
+            <td><code>NO</code></td>
+            <td>Nie uzupełniamy tego produktu</td>
+          </tr>
+          <tr>
+            <td><code>x</code></td>
+            <td>Uzupełniamy mimo braku wcześniejszej sprzedaży</td>
+          </tr>
+        </table>
+      </div>
+    </div>
+
+    <footer id="kontakt">
+      <p>Kontakt w razie pytań: <strong>twojemail@firma.pl</strong></p>
+    </footer>
+
+    <script>
+      document.addEventListener('DOMContentLoaded', function () {
+        const titles = document.querySelectorAll('.collapsible-title');
+
+        titles.forEach((title) => {
+          const content = title.nextElementSibling;
+          content.classList.remove('visible');
+
+          title.addEventListener('click', () => {
+            const isVisible = content.classList.toggle('visible');
+            title.classList.toggle('collapsed', isVisible);
+          });
+        });
+
+        // Rozwijanie sekcji po kliknięciu w navbar
+        const navLinks = document.querySelectorAll('.nav-list a');
+
+        navLinks.forEach((link) => {
+          link.addEventListener('click', function (e) {
+            const targetId = this.getAttribute('href');
+            const section = document.querySelector(targetId);
+            const title = section?.querySelector('.collapsible-title');
+            const content = section?.querySelector('.collapsible-content');
+
+            if (content && title) {
+              // Rozwiń tylko wybraną sekcję
+              content.classList.add('visible');
+              title.classList.add('collapsed');
+
+              // (opcjonalnie) schowaj pozostałe
+              document
+                .querySelectorAll('.collapsible-content')
+                .forEach((el) => {
+                  if (el !== content) el.classList.remove('visible');
+                });
+              document.querySelectorAll('.collapsible-title').forEach((el) => {
+                if (el !== title) el.classList.remove('collapsed');
+              });
+            }
+          });
+        });
+      });
+    </script>
+  </body>
+</html>
