@@ -81,7 +81,46 @@
       <h2 class="collapsible-title">Co pobrać przed startem?</h2>
       <div class="collapsible-content">
         <div class="plikdopobrania">
-          <p>pobierz plik1</p>
+  
+          
+          <div class="lista-przed">              
+            <h3 class="collapsible-title">PLIK 1: Pobierz stan na Zalando</h3>
+            <div class="collapsible-content">
+            <p>Pamiętaj by być w zakładce "ALL"<br> Odrazu po pobraniu zmień nazwę pliku na "Zalando DDMMYYYY"</p>
+            <img src="assets/zalando_2_1.png" style="max-height: 800px" />
+          </div></div>
+          
+            <div class="lista-przed">
+              <h3 class="collapsible-title">PLIK 2: Pobierz sprzedaż z Baselinkera</h3>
+              <div class="collapsible-content">
+              <p>Ważne - zaznacz zakres ponad miesiąc<br> Odrazu po pobraniu zmień nazwę pliku na "Baselinker DDMMYYYY"</p>
+              <img src="assets/baselinker_1.png" style="max-height: 800px" /> <br>
+              <img src="assets/baselinker_2.png" style="max-height: 800px" /><br>
+              <img src="assets/baselinker_3.png" style="max-height: 800px" /><br>
+              <img src="assets/baselinker_4.png" style="max-height: 800px" />
+            </div></div>
+          
+              <div class="lista-przed">
+                <h3 class="collapsible-title"> PLIK 3: Pobierz stany z WMS</h3>
+                <div class="collapsible-content">
+                <ul>
+                  <li>Wchodzimy do Katalogi -> Materiały</li>
+                  <li>Czekamy aż wszytskie artykuły się załadują</li>
+                  <li>Przechodzimy do Eksportu danych</li>
+                  <li>Wybieramy Excel 2007-2015</li>
+                  <li>Wpisujemy nazwę "WMS DDMMYYY"</li>
+                </ul>
+                <img src="assets/wms_2.png" style="max-height: 800px" /><br>
+                <img src="assets/wms_2_1.png" style="max-height: 800px" /><br>
+                <img src="assets/wms_3.png" style="max-height: 800px" />
+              </div></div>
+
+              <div class="lista-przed"><h3 class="collapsible-title">Zapisujemy wszytskie 3 pliki w 1 miejscu</h3>
+                <div class="collapsible-content">
+                  <img src="assets/replen_przed.png" style="max-height: 800px" />
+                </div>
+              </div>
+
         </div>
       </div>
     </div>
@@ -90,29 +129,76 @@
       <h2 class="collapsible-title">Kroki</h2>
       <div class="collapsible-content">
         <div class="krok">
-          <h3>KROK 1</h3>
+          
+          <h3 class="collapsible-title">KROK 1</h3>
+          <div class="collapsible-content">
           <p>Mam 3 pliki: Baselinker, Zalando i WMS</p>
-        </div>
+          <img src="assets/zalando_krok1.png" style="max-height: 800px" />
+          <p>Wybieramy pliki i klikamy GENERUJ!</p>
+          <img src="assets/krok1.png" style="max-height: 800px" />
+          <p>Mogą sie pojawić błędy, ALE SPOKOJNIE - czytamy co nie tak.</p>
+          <img src="assets/blad1.png" style="max-height: 800px" />
+          <h3>Ręczne sprawdzenie</h3>
+          <p>Po wygenerowaniu Order_template musimy ręcznie sprawdzić czy coś usuwamy (jeżeli czegoś jest za mało na stanach), czy na odwrót zwiększamy ilość, bo np. idzie sezon.</p>
+          <p>Ręczne usuwanie zostawione jest po to żeby mieć kontrole czego brakuje na stanach</p>
+          <img src="assets/order_template.png" style="max-height: 800px" />
+          <p>Jeżeli chcemy dodać wiecej sztuk do replenu to dopisujemy je w kolumnie D</p>
+          <img src="assets/order_template_1.png" style="max-height: 800px" />
+          <p>Jeżeli chcemy dodać coś czego nie znalazło się w tym replenie to dodajemy SKU-EAN-ENOVA_Ilość do uzupełnienia w kolumnach A:D</p>
+          <img src="assets/order_template_2.png" style="max-height: 800px" />
+          <p>Resztę kolumn uzuepłniamy przeciągając formuły z wiersza wyżej</p>
+          <img src="assets/order_template_3.png" style="max-height: 800px" />
+        </div></div>
 
         <div class="krok">
-          <h3>KROK 2</h3>
-          <p>
-            Generuj plik do Zalando (kliknij przycisk w zakładce
-            <code>Start</code>)
-          </p>
-        </div>
+          <h3 class="collapsible-title">KROK 2</h3>
+          <div class="collapsible-content">
+          <p>Generuj plik do Zalando</p>
+          <p>Order_template mamy już zrobione - wracamy do zakładki Start i Generujemy plik do Zalando</p>
+          <img src="assets/zalando_krok2.png" style="max-height: 800px" />
+          <p>Wchodzimy do Zalando -> Zakładka Fulfilment -> Shipping notices</p>
+          <img src="assets/zalando_after_1_1.png" style="max-height: 800px" />
+          <p>Tworzymy nowe Shipping notice (lub używamy stworzony wcześniej draft)</p>
+          <img src="assets/zalando_after_1.png" style="max-height: 800px" />
+          <p>Ładujemy plik któy stworzył nasz program "Zalando_replenish_yyy_mm_dd"</p>
+          <img src="assets/zalando_after_2.png" style="max-height: 800px" />
+          <p>Widzimy brak błędów i ilość się zgadza z naszym Order_Template-> idziemy do kroku 3</p>
+          <img src="assets/zalando_after_3.png" style="max-height: 800px" />
+        </div></div>
 
         <div class="krok">
-          <h3>KROK 3</h3>
-          <p>
-            Sprawdź, czy Zalando przyjęło plik → jeśli tak, generuj plik do WMS
-          </p>
-        </div>
+          <h3 class="collapsible-title">KROK 3</h3>
+          <div class="collapsible-content">
+          <p>Generuj plik do WMS</p>
+          <img src="assets/zalando_krok3.png" style="max-height: 800px" />
+          <p>W folderze z naszym programem pojawi się plik "EAN_qty_yyyy-mm-dd"</p>
+          <p>Idziemy do WMS -> Dokumenty zewnętrzne -> Wydania zewnętrzne</p>
+          <img src="assets/zalando_after_4.png" style="max-height: 800px" />
+          <p>Wybieramy odbiorcę JMFA PL</p>
+          <img src="assets/zalando_after_5.png" style="max-height: 800px" />
+          <p>Przechodzimy do zakładki "Dane dodatkowe" -> uzupełniamy "Uwagi"</p>
+          <p>BĄDŹ MIŁY</p>
+          <p>"Zamówienie Zalando dd.mm.yyyy Dziękuję miłego dnia :)"</p>
+          <img src="assets/zalando_after_6.png" style="max-height: 800px" />
+          <p>Wracamy do zakładki "Dane podstawowe" -> klikamy "Import pozycji"</p>
+          <img src="assets/zalando_after_7.png" style="max-height: 800px" />
+          <p>Klikamy "Wybierz plik do importu"</p>
+          <img src="assets/zalando_after_8.png" style="max-height: 800px" />
+          <p>Sprawdzamy czy ilość się zgadza z Zalando i naszym Order_Template -> Klikamy OK</p>
+          <img src="assets/zalando_after_9.png" style="max-height: 800px" />
+          <p>Ustawiamy WZ na widoczność - ma pojawić się ptaszek w kolumnie "Widoczność na mobilnych"</p>
+          <img src="assets/zalando_after_10_1.png" style="max-height: 800px" />
+          <p>Nr WZ podsyłamy dziewczynom na Tiptopowej grupie na fb z prośbą o spakowanie</p>
+          <p>BĄDŹ MIŁY</p>
+          <img src="assets/zalando_after_10.png" style="max-height: 800px" />
+
+        </div></div>
 
         <div class="krok">
-          <h3>KROK 4</h3>
+          <h3 class="collapsible-title">KROK 4</h3>
+          <div class="collapsible-content">
           <p>Masz info od dziewczyn i WZ? Klikaj!</p>
-        </div>
+        </div></div>
       </div>
     </div>
 
@@ -141,41 +227,30 @@
     <script>
       document.addEventListener('DOMContentLoaded', function () {
         const titles = document.querySelectorAll('.collapsible-title');
-
+    
         titles.forEach((title) => {
           const content = title.nextElementSibling;
           content.classList.remove('visible');
-
+    
           title.addEventListener('click', () => {
             const isVisible = content.classList.toggle('visible');
             title.classList.toggle('collapsed', isVisible);
           });
         });
-
-        // Rozwijanie sekcji po kliknięciu w navbar
+    
+        // Rozwijanie sekcji po kliknięciu w navbar (bez zwijania innych)
         const navLinks = document.querySelectorAll('.nav-list a');
-
+    
         navLinks.forEach((link) => {
-          link.addEventListener('click', function (e) {
+          link.addEventListener('click', function () {
             const targetId = this.getAttribute('href');
             const section = document.querySelector(targetId);
             const title = section?.querySelector('.collapsible-title');
             const content = section?.querySelector('.collapsible-content');
-
+    
             if (content && title) {
-              // Rozwiń tylko wybraną sekcję
               content.classList.add('visible');
               title.classList.add('collapsed');
-
-              // (opcjonalnie) schowaj pozostałe
-              document
-                .querySelectorAll('.collapsible-content')
-                .forEach((el) => {
-                  if (el !== content) el.classList.remove('visible');
-                });
-              document.querySelectorAll('.collapsible-title').forEach((el) => {
-                if (el !== title) el.classList.remove('collapsed');
-              });
             }
           });
         });
